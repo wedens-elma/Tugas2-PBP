@@ -10,7 +10,7 @@ Link: https://tugas-2-pbp-wedens.herokuapp.com/katalog/
 
 ![bagan](https://github.com/wedens-elma/Tugas2-PBP/blob/main/bagan%20readme%20tugas%202.png)
 
-Ketika user mengetikkan url pada browser, itu artinya user sedan melakukan request. Selanjutnya, terjadi pemetaan alamat dari URL ke Views yang tepat. Views akan meminta data ke Models yang akan mengembalikan data dari database. Setelah Views mendapatkan datanya melalui Models, Views juga akan berhubungan dengan berkas HTML pada template. Views akan menunjuk kepada berkas HTML yang ada di fungsi. Data yang telah didapatkan dari akses Models ke database lalu dikembalikan sesuai pemanggilan pada berkas HTML. Dengan begitu, webpage akan ditampilkan ke user sesuai dengan pengaturan di berkas HTML yang telah dibuat. 
+Ketika user mengetikkan url pada browser, itu artinya user sedang melakukan request. Selanjutnya, terjadi pemetaan alamat dari URL ke Views yang tepat. Views akan meminta data ke Models yang akan mengembalikan data dari database. Setelah Views mendapatkan datanya melalui Models, Views juga akan berhubungan dengan berkas HTML pada template. Views akan menunjuk kepada berkas HTML yang ada di fungsi. Data yang telah didapatkan dari akses Models ke database lalu dikembalikan sesuai pemanggilan pada berkas HTML. Dengan begitu, webpage akan ditampilkan ke user sesuai dengan pengaturan di berkas HTML yang telah dibuat. 
 
 ## Jelaskan kenapa menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
 

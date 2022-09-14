@@ -1,62 +1,27 @@
-# Template Proyek Django PBP
+# Tugas 2 PBP
 
-Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakultas Ilmu Komputer Universitas Indonesia, Semester Ganjil 2022/2023
+Nama: Wedens Elma Malau
 
-*Read this in other languages: [Indonesian](README.md), [English](README.en.md)*
+NPM: 2106751165
 
-## Pendahuluan
+Link: https://tugas-2-pbp-wedens.herokuapp.com/katalog/
 
-Repositori ini merupakan sebuah template yang dirancang untuk membantu mahasiswa yang sedang mengambil mata kuliah Pemrograman Berbasis Platform (CSGE602022) mengetahui struktur sebuah proyek aplikasi Django serta file dan konfigurasi yang penting dalam berjalannya aplikasi. Kamu dapat dengan bebas menyalin isi dari repositori ini atau memanfaatkan repositori ini sebagai pembelajaran sekaligus awalan dalam membuat sebuah proyek Django.
+## Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html;
 
-## Cara Menggunakan
+![bagan](https://github.com/wedens-elma/Tugas2-PBP/blob/main/bagan%20readme%20tugas%202.png)
 
-Apabila kamu ingin menggunakan repositori ini sebagai repositori awalan yang nantinya akan kamu modifikasi:
+Ketika user mengetikkan url pada browser, itu artinya user sedan melakukan request. Selanjutnya, terjadi pemetaan alamat dari URL ke Views yang tepat. Views akan meminta data ke Models yang akan mengembalikan data dari database. Setelah Views mendapatkan datanya melalui Models, Views juga akan berhubungan dengan berkas HTML pada template. Views akan menunjuk kepada berkas HTML yang ada di fungsi. Data yang telah didapatkan dari akses Models ke database lalu dikembalikan sesuai pemanggilan pada berkas HTML. Dengan begitu, webpage akan ditampilkan ke user sesuai dengan pengaturan di berkas HTML yang telah dibuat. 
 
-1. Buka laman GitHub repositori templat kode, lalu klik tombol "**Use this template**"
-   untuk membuat salinan repositori ke dalam akun GitHub milikmu.
-2. Buka laman GitHub repositori yang dibuat dari templat, lalu gunakan perintah
-   `git clone` untuk menyalin repositorinya ke suatu lokasi di dalam sistem
-   berkas (_filesystem_) komputermu:
+## Jelaskan kenapa menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
 
-   ```shell
-   git clone <URL ke repositori di GitHub> <path ke suatu lokasi di filesystem>
-   ```
-3. Masuk ke dalam repositori yang sudah di-_clone_ dan jalankan perintah berikut
-   untuk menyalakan _virtual environment_:
+Kita tetap dapat membuat aplikasi web berbasis Django walaupun tanpa menggunakan virtual environment. Tetapi, jika menggunakan virtual environment, kita dapat lebih mudah memisahkan project-project Django yang kita buat, dari segi pengaturan maupun dependencies. Hal ini membuat project-project kita lebih rapih dan kekurangan dari satu project tidak terlalu berpengaruh pada yang lain. Selain itu, virtual environment juga memudahkan dari sisi mobilitas. Jika menggunakan virtual environment yang sama, kita tidak perlu menginstall ulang requirements yang sudah pernah diinstall walaupun dalam device yang berbeda.
 
-   ```shell
-   python -m venv env
-   ```
-4. Nyalakan environment dengan perintah berikut:
+## Jelaskan bagaimana cara kamu mengimplementasikan poin 1 sampai dengan 4 di atas.
 
-   ```shell
-   # Windows
-   .\env\Scripts\activate
-   # Linux/Unix, e.g. Ubuntu, MacOS
-   source env/bin/activate
-   ```
-5. Install dependencies yang dibutuhkan untuk menjalankan aplikasi dengan perintah berikut:
+Pada views, saya membuat sebuah fungsi bernama show_katalog dengan satu parameter request yang returnnya memanggil fungsi render dari Django shortcuts dengan parameter request, file katalog.html, dan sebuah variabel bernama context. Variabel context di sini mengandung sebuah set yang values-nya merupakan data, dan keys-nya merupakan sebuah nama yang nantinya dapat digunakan di file html untuk menampilkan datanya.
 
-   ```shell
-   pip install -r requirements.txt
-   ```
+Implementasi routings dilakukan di file url. Pemetaan dilakukan dengan membuat suatu variabel bernama urlpatterns yang berisi sebuah list. Di dalam list tersebut, terpanggil sebuah fungsi bernama path. Routings ini dilakukan untuk memetakan fungsi pada views. Tidak lupa, kita juga harus melakukan routing ke katalog/ dengan menambahkannya ke urlpatterns di file urls yang di folder project.
 
-6. Jalankan aplikasi Django menggunakan server pengembangan yang berjalan secara
-   lokal:
+Pemetaan ke dalam HTML dibuat menggunakan nama-nama variabel yang ada di dalam file models. Pemanggilan nama-nama variabel tersebut akan mengembalikan data-data models yang juga terhubung dengan file JSON di fixtures.
 
-   ```shell
-   python manage.py runserver
-   ```
-7. Bukalah `http://localhost:8000` pada browser favoritmu untuk melihat apakah aplikasi sudah berjalan dengan benar.
-
-## Contoh Deployment 
-
-Pada template ini, deployment dilakukan dengan memanfaatkan GitHub Actions sebagai _runner_ dan Heroku sebagai platform Hosting aplikasi. 
-
-Untuk melakukan deployment, kamu dapat melihat instruksi yang ada pada [Tutorial 0](https://pbp-fasilkom-ui.github.io/ganjil-2023/assignments/tutorial/tutorial-0).
-
-Untuk contoh aplikasi Django yang sudah di deploy, dapat kamu akses di [https://django-pbp-template.herokuapp.com/](https://django-pbp-template.herokuapp.com/)
-
-## Credits
-
-Template ini dibuat berdasarkan [PBP Ganjil 2021](https://gitlab.com/PBP-2021/pbp-lab) yang ditulis oleh Tim Pengajar Pemrograman Berbasis Platform 2021 ([@prakashdivyy](https://gitlab.com/prakashdivyy)) dan [django-template-heroku](https://github.com/laymonage/django-template-heroku) yang ditulis oleh [@laymonage, et al.](https://github.com/laymonage). Template ini dirancang sedemikian rupa sehingga mahasiswa dapat menjadikan template ini sebagai awalan serta acuan dalam mengerjakan tugas maupun dalam berkarya.
+Setelah semua views, models, dan template selesai dirancang, kita melakukan deployment ke Heroku. Setelah melakukan add, commit, push ke github, kita menambahkan secrets ke dalam repo. Secrets tersebut adalah nama dari app yang kita buat di Heroku dan API key dari akun Heroku kita. Karena sebelum ditambahkan secrets deployment di github akan gagal, kita dapat me-rerun jobs yang gagal. Setelah itu, barulah kita dapat mengakses aplikasi yang selesai kita buat melalui internet.

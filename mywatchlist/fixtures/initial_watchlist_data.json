@@ -1,0 +1,134 @@
+[
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":1,
+        "fields":{
+            "watched":"Done",
+            "title":"Vincenzo",
+            "rating": "5",
+            "release_date": "2021-02-20",
+            "review": "I couldn't help but binge watch this"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":2,
+        "fields":{
+            "watched":"Done",
+            "title":"Start-Up",
+            "rating": "5",
+            "release_date": "2020-10-17",
+            "review": "Super relatable and insightful"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":3,
+        "fields":{
+            "watched":"Done",
+            "title":"Itaewon Class",
+            "rating": "5",
+            "release_date": "2020-03-31",
+            "review": "Just like Start-Up but u get a lil bit of more romance"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":4,
+        "fields":{
+            "watched":"Not Yet",
+            "title":"Reply 1988",
+            "rating": "5",
+            "release_date": "2015-11-06",
+            "review": "Caca said it's boring at first but got more into it on the 3rd ep"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":5,
+        "fields":{
+            "watched":"Done",
+            "title":"Hometown Cha Cha Cha",
+            "rating": "3",
+            "release_date": "2021-08-28",
+            "review": "Not my favorite"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":6,
+        "fields":{
+            "watched":"Done",
+            "title":"Our Beloved Summer",
+            "rating": "4",
+            "release_date": "2021-12-06",
+            "review": "The kind of rom-com that'll make you cringe every 5 minutes"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":7,
+        "fields":{
+            "watched":"Done",
+            "title":"Parasite",
+            "rating": "5",
+            "release_date": "2019-06-21",
+            "review": "The director is just so genius"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":8,
+        "fields":{
+            "watched":"Done",
+            "title":"Bad Genius",
+            "rating": "5",
+            "release_date": "2017-08-23",
+            "review": "Mind blowing"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":9,
+        "fields":{
+            "watched":"Done",
+            "title":"Searching",
+            "rating": "5",
+            "release_date": "2018-08-24",
+            "review": "Plot twist 100"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":10,
+        "fields":{
+            "watched":"Not Yet",
+            "title":"La Casa De Papel",
+            "rating": "4",
+            "release_date": "2017-05-02",
+            "review": "A brilliant heist story"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":11,
+        "fields":{
+            "watched":"Done",
+            "title":"Business Proposal",
+            "rating": "4",
+            "release_date": "2022-02-28",
+            "review": "More of the romance rather than the working vibes"
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":12,
+        "fields":{
+            "watched":"Stopped",
+            "title":"Sky Castle",
+            "rating": "2",
+            "release_date": "2018-11-23",
+            "review": "Too many devils"
+        }
+    }
+]

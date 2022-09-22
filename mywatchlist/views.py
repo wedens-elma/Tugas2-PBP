@@ -7,11 +7,19 @@ from django.core import serializers
 
 def show_mywatchlist(request):
     data_watchlist = MyWatchList.objects.all()
+
+    if (MyWatchList.objects.filter(watched="Done").count() >= MyWatchList.objects.filter(watched="Not Yet").count()):
+        message = "Selamat, kamu sudah banyak menonton!"
+    else:
+        message = "Wah, kamu masih sedikit menonton!"
+
     context = {
         'watchlist': data_watchlist,
         'name': "Wedens Elma Malau",
         'npm': "2106751165",
+        'message': message,
     }
+
     return render(request, "mywatchlist.html", context)
 
 def show_xml(request):

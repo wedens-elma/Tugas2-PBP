@@ -8,7 +8,7 @@ from django.core import serializers
 def show_mywatchlist(request):
     data_watchlist = MyWatchList.objects.all()
 
-    if (MyWatchList.objects.filter(watched="Done").count() >= MyWatchList.objects.filter(watched="Not Yet").count()):
+    if (MyWatchList.objects.filter(watched="Done").count() > MyWatchList.objects.filter(watched="Not Yet").count()):
         message = "Selamat, kamu sudah banyak menonton!"
     else:
         message = "Wah, kamu masih sedikit menonton!"
@@ -29,7 +29,3 @@ def show_xml(request):
 def show_json(request):
     data = MyWatchList.objects.all()
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
-
-# def show_html(request):
-#     data = MyWatchList.objects.all()
-#     return HttpResponse(serializers.serialize("html", data), content_type="application/html")

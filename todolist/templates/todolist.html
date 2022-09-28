@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Welcome, {{user}}!</h2>
+<button><a href="{% url 'todolist:create-task' %}">Tambah Task Baru</a></button>
+<button><a href="{% url 'todolist:logout_user' %}">Logout</a></button>
+<br>
+<br>
+<table border="1">
+    <tr>
+    <th>Tanggal</th>
+    <th>Judul</th>
+    <th>Deskripsi</th>
+    <th>Status</th>
+    <th>Edit</th>
+    </tr>
+    {% for item in list_task %}
+        <tr>
+            <th>{{item.date}}</th>
+            <th>{{item.title}}</th>
+            <th>{{item.description}}</th>
+            {% if item.is_finished %}
+            <th>Selesai</th>
+            {% else %}
+            <th>Belum Selesai</th>
+            {% endif %}
+            {% comment %} post pk dari task yang buttonnya diklik {% endcomment %}
+            <th><form method="post" action="status/">
+                {% csrf_token %}
+                <input type="hidden" name="task_pk" value={{item.pk}}>
+                {% if item.is_finished %}
+                    <button name="action" value="unfinish">Ubah Status</button>
+                {% else %}
+                    <button name="action" value="finish">Ubah Status</button>
+                {% endif %}
+                <input type="hidden" name="task_pk" value={{item.pk}}>
+                <button name="action" value="delete">Hapus Task</button>
+            </form></th>
+            {% comment %} alternatif implementasi dari ka Athal: nge-pass id {% endcomment %}
+            <!-- <th><button><a href="{% url 'todolist:ubah_status' item.id %}">Ubah Status</a></button>
+            <button><a href="{% url 'todolist:hapus_task' item.id %}">Hapus Task</a></button></th> -->
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock content %}

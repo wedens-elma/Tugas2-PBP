@@ -1,0 +1,36 @@
+body {
+    font-family: verdana;
+    background: rgb(2,0,36);
+    background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(218, 255, 204) 35%, rgb(173, 250, 255) 100%);
+    /* text-shadow: 1px 1px 4px #c0c0c0; */
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+.button {
+    position: absolute;
+    top: 50%;
+}
+
+.login {
+    text-align: center;
+}
+
+.task {
+    text-align: center;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding:0px;
+}

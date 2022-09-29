@@ -12,18 +12,18 @@
 
     <form method="POST" action="">
         {% csrf_token %}
-        <table>
-            <tr>
+        <table  class="card" style="border:0px solid black;margin-left:auto;margin-right:auto;padding:2px;border-spacing:10px;background-color:white;" border="1px">
+            <tr style="background-color:rgb(254, 254, 209);border: 0px solid rgba(0, 0, 0, 0);">
                 <td>Username: </td>
                 <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
             </tr>
                     
-            <tr>
+            <tr style="background-color:rgb(254, 254, 209);border: 0px solid rgba(0, 0, 0, 0);">
                 <td>Password: </td>
                 <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
             </tr>
 
-            <tr>
+            <tr style="background-color:rgb(254, 254, 209);border: 0px solid rgba(0, 0, 0, 0);">
                 <td></td>
                 <td><input class="btn login_btn" type="submit" value="Login"></td>
             </tr>
@@ -38,6 +38,8 @@
         </ul>
     {% endif %}     
         
+    <br>
+
     Belum mempunyai akun? <a href="{% url 'todolist:register' %}">Buat Akun</a>
 
 </div>

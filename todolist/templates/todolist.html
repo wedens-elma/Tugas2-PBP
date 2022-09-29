@@ -2,20 +2,23 @@
 
 {% block content %}
 <h2>Welcome, {{user}}!</h2>
+<br>
+<div class="wrapper">
 <button><a href="{% url 'todolist:create-task' %}">Tambah Task Baru</a></button>
 <button><a href="{% url 'todolist:logout_user' %}">Logout</a></button>
+</div>
 <br>
 <br>
-<table border="1">
+<table class="card" style="border:0px solid black;margin-left:auto;margin-right:auto;padding:2px;border-spacing:10px;background-color:white;" border="1px">
     <tr>
-    <th>Tanggal</th>
-    <th>Judul</th>
-    <th>Deskripsi</th>
-    <th>Status</th>
-    <th>Edit</th>
+    <th style="border: 0px solid rgba(0, 0, 0, 0);background-image: linear-gradient(to bottom right, rgb(183, 252, 240), rgb(255, 255, 174))">Tanggal</th>
+    <th style="border: 0px solid rgba(0, 0, 0, 0);background-image: linear-gradient(to bottom right, rgb(183, 252, 240), rgb(255, 255, 174))">Judul</th>
+    <th style="border: 0px solid rgba(0, 0, 0, 0);background-image: linear-gradient(to bottom right, rgb(183, 252, 240), rgb(255, 255, 174))">Deskripsi</th>
+    <th style="border: 0px solid rgba(0, 0, 0, 0);background-image: linear-gradient(to bottom right, rgb(183, 252, 240), rgb(255, 255, 174))">Status</th>
+    <th style="border: 0px solid rgba(0, 0, 0, 0);background-image: linear-gradient(to bottom right, rgb(183, 252, 240), rgb(255, 255, 174))">Edit</th>
     </tr>
     {% for item in list_task %}
-        <tr>
+        <tr style="background-color:rgb(254, 254, 209);border: 0px solid rgba(0, 0, 0, 0);">
             <th>{{item.date}}</th>
             <th>{{item.title}}</th>
             <th>{{item.description}}</th>

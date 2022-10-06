@@ -1,24 +1,37 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Welcome, {{user}}!</h2>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="w3-bar w3-black" style="font-family:'Courier New', Courier, monospace">
+        <a href="#" class="w3-bar-item w3-button w3-mobile">Todolist</a>
+        <a href="{% url 'todolist:logout_user' %}" class="w3-bar-item w3-button w3-mobile">Logout</a>
+        <a href="{% url 'todolist:create-task' %}" class="w3-bar-item w3-button w3-mobile">Create Task</a>
+    </div>
+</nav>
+
 <br>
-<div class="wrapper">
+
+<h2 style="font-family:'Courier New', Courier, monospace">Welcome, {{user}}!</h2>
+<!-- <br> -->
+<!-- <div class="wrapper">
 <button><a href="{% url 'todolist:create-task' %}">Tambah Task Baru</a></button>
 <button><a href="{% url 'todolist:logout_user' %}">Logout</a></button>
-</div>
-<br>
+</div> -->
+<!-- <br> -->
 <br>
 <table class="card" style="border:0px solid black;margin-left:auto;margin-right:auto;padding:2px;border-spacing:10px;background-color:white;" border="1px">
     <tr>
-    <th style="border: 0px solid rgba(0, 0, 0, 0);background-image: linear-gradient(to bottom right, rgb(183, 252, 240), rgb(255, 255, 174))">Tanggal</th>
-    <th style="border: 0px solid rgba(0, 0, 0, 0);background-image: linear-gradient(to bottom right, rgb(183, 252, 240), rgb(255, 255, 174))">Judul</th>
-    <th style="border: 0px solid rgba(0, 0, 0, 0);background-image: linear-gradient(to bottom right, rgb(183, 252, 240), rgb(255, 255, 174))">Deskripsi</th>
-    <th style="border: 0px solid rgba(0, 0, 0, 0);background-image: linear-gradient(to bottom right, rgb(183, 252, 240), rgb(255, 255, 174))">Status</th>
-    <th style="border: 0px solid rgba(0, 0, 0, 0);background-image: linear-gradient(to bottom right, rgb(183, 252, 240), rgb(255, 255, 174))">Edit</th>
+    <th style="border: 0px solid rgba(0, 0, 0, 0);background-image: linear-gradient(to bottom right, rgb(183, 252, 240), rgb(255, 255, 174)); font-family:'Courier New', Courier, monospace">Tanggal</th>
+    <th style="border: 0px solid rgba(0, 0, 0, 0);background-image: linear-gradient(to bottom right, rgb(183, 252, 240), rgb(255, 255, 174)); font-family:'Courier New', Courier, monospace">Judul</th>
+    <th style="border: 0px solid rgba(0, 0, 0, 0);background-image: linear-gradient(to bottom right, rgb(183, 252, 240), rgb(255, 255, 174)); font-family:'Courier New', Courier, monospace">Deskripsi</th>
+    <th style="border: 0px solid rgba(0, 0, 0, 0);background-image: linear-gradient(to bottom right, rgb(183, 252, 240), rgb(255, 255, 174)); font-family:'Courier New', Courier, monospace">Status</th>
+    <th style="border: 0px solid rgba(0, 0, 0, 0);background-image: linear-gradient(to bottom right, rgb(183, 252, 240), rgb(255, 255, 174)); font-family:'Courier New', Courier, monospace">Edit</th>
     </tr>
     {% for item in list_task %}
-        <tr style="background-color:rgb(254, 254, 209);border: 0px solid rgba(0, 0, 0, 0);">
+        <tr style="background-color:rgb(254, 254, 209);border: 0px solid rgba(0, 0, 0, 0); font-family:'Courier New', Courier, monospace">
             <th>{{item.date}}</th>
             <th>{{item.title}}</th>
             <th>{{item.description}}</th>
@@ -45,5 +58,27 @@
         </tr>
     {% endfor %}
 </table>
+
+<br>
+<div class="w3-container w3-center w3-mobile w3-cell-row" style="margin:auto">
+
+    <tr>
+        {% for item in list_task %}
+            <div class="w3-card w3-white w3-hover-shadow w3-cell w3-mobile w3-margin w3-container w3-margin" style="width:15%">
+                <th><h4><p style="font-family:'Courier New', Courier, monospace">{{item.date}}</p></h4></th>
+                <th><h4><p style="font-family:'Courier New', Courier, monospace"><strong>{{item.title}}</strong></p></h4></th>
+                <th><h4><p style="font-family:'Courier New', Courier, monospace">{{item.description}}</p></h4></th>
+                {% if item.is_finished %}
+                <th><h4><p style="font-family:'Courier New', Courier, monospace">Selesai</p></h4></th>
+                {% else %}
+                <th><h4><p style="font-family:'Courier New', Courier, monospace">Belum Selesai</p></h4></th>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </tr>
+</div>
+
+<br>
+<br>
 
 {% endblock content %}

@@ -1,7 +1,7 @@
 body {
     /* font-family: 'Courier New', Courier, monospace; */
     background: rgb(2,0,36);
-    background: radial-gradient(circle, rgb(177, 177, 177) 0%, rgb(218, 255, 204) 35%, rgb(173, 250, 255) 100%);
+    background: radial-gradient(circle, rgb(228, 228, 228) 0%, rgb(218, 255, 204) 35%, rgb(173, 250, 255) 100%);
     /* text-shadow: 1px 1px 4px #c0c0c0; */
 }
 

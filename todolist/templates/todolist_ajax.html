@@ -90,9 +90,9 @@
         `\n<div class="col hover">
             <div class="card border-primary mb-3 w3-card w3-white w3-hover-shadow w3-cell w3-mobile">
                 <div class="card-body" style="text-align: left;"> 
-                    <h3 class="card-title">${item.fields.title}</h3>
+                    <h3 class="card-title" style="text-align: left;">${item.fields.title}</h3>
                     <h7 class="card-subtitle">${item.fields.date}</h7>
-                    <p class="card-text">${item.fields.description}</p>
+                    <p class="card-text" style="text-align: left;">${item.fields.description}</p>
                     {% if item.is_finished %}
                     <p><strong>Selesai</strong></p>
                     {% else %}

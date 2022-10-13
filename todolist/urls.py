@@ -15,4 +15,10 @@ urlpatterns = [
     # alternatif implementasi dari ka athal, lewat id passing
     path('status/<int:id>', ubah_status, name='ubah_status'),
     path('hapus/<int:id>', hapus_task, name='hapus_task'),
+
+    # tugas 6
+    path('change/<int:id>/', change_status, name='change_status'),
+    path('delete-task-ajax/<int:id>/', delete_task_ajax, name='delete_task_ajax'),
+    path('json/', show_json, name='show_json'),
+    path('add/', create_task_ajax, name='create-task-ajax'),
 ]

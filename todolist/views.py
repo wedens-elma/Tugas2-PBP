@@ -10,7 +10,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 import datetime
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpRequest
 from django.urls import reverse
 
 from todolist.forms import Form
@@ -24,7 +24,7 @@ def show_todolist(request):
         'list_task': data_todolist,
         'user': user,
     }
-    return render(request, "todolist.html", context)
+    return render(request, "todolist_ajax.html", context)
 
 def show_xml(request):
     data = Task.objects.all()
@@ -119,3 +119,41 @@ def hapus_task(request, id):
     hapus = Task.objects.get(pk=id)
     hapus.delete()
     return HttpResponseRedirect(reverse('todolist:show_todolist'))
+
+# tugas 6
+@login_required(login_url='/todolist/login/')
+def create_task_ajax(request):
+    if request.method == "POST":
+        new_task = Task(
+            date = datetime.datetime.now(),
+            title = request.POST.get("title"),
+            description = request.POST.get("description"),
+            user = request.user
+        )
+        new_task.save()
+        return HttpResponse(status=200)
+    return redirect("todolist:show_todolist")
+
+@login_required(login_url='/todolist/login/')
+def delete_task_ajax(request: HttpRequest, id):
+    if request.method == "DELETE":
+        task = Task.objects.get(pk = id)
+
+        if task.user == request.user:
+            task.delete()
+            response = HttpResponse(status=200)
+        else:
+            response = HttpResponse("Error: User not compatible", status=403)
+
+        return response
+
+    return HttpResponseRedirect(reverse('todolist:show_todolist'))
+
+def change_status(request, id):
+    status = Task.objects.get(pk=id)
+    if status.is_finished:
+        status.is_finished = False
+    else:
+        status.is_finished = True
+    status.save()
+    return HttpResponse(serializers.serialize("json", [status]))

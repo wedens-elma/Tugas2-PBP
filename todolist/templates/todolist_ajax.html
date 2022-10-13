@@ -94,9 +94,9 @@
                     <h7 class="card-subtitle">${item.fields.date}</h7>
                     <p class="card-text" style="text-align: left;">${item.fields.description}</p>
                     {% if item.is_finished %}
-                    <p><strong>Selesai</strong></p>
+                    <p style="text-align: left;"><strong>Selesai</strong></p>
                     {% else %}
-                    <p><strong>Belum Selesai</strong></p>
+                    <p style="text-align: left;"><strong>Belum Selesai</strong></p>
                     {% endif %}
                     <form method="post" action="status/">
                     {% csrf_token %}

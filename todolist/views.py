@@ -24,7 +24,7 @@ def show_todolist(request):
         'list_task': data_todolist,
         'user': user,
     }
-    return render(request, "todolist_ajax.html", context)
+    return render(request, "todolist.html", context)
 
 def show_xml(request):
     data = Task.objects.all()
